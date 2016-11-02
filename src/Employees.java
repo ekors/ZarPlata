@@ -8,10 +8,16 @@ public class Employees {
     private boolean birthday;
     private String department;
     private Employees[] employeesDB;
+    private String[] employeesNames;
+
 
     //constructors
 
     public Employees() {
+    }
+
+    public Employees(String name) {
+        this.name = name;
     }
 
     public Employees(String name, int id, int salary, boolean birthday, String department) {
@@ -65,5 +71,13 @@ public class Employees {
     }
     public void setEmployeesDB(Employees[] employeesDB) {
         this.employeesDB = employeesDB;
+    }
+
+    public String[] getEmployeesNames() {
+        return employeesNames;
+    }
+
+    public void setEmployeesNames(String[] employeesNames) {
+        this.employeesNames = employeesNames;
     }
 }
