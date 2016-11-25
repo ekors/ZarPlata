@@ -31,6 +31,6 @@ public class Main {
         departments.add(0, qaDepartment);
         departments.add(1, devDepartment);
 
-        Company company = new Company(departments);
+//        Company company = new Company(departments);
     }
 }
