@@ -6,6 +6,8 @@ import java.util.Date;
  */
 public class Company {
 
+    private int fond;
+
     public Company(ArrayList<Department> departments) {
         this.departments = departments;
     }
