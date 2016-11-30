@@ -16,9 +16,9 @@ public class Main {
         qaEmployees.add(0, new Employee(3, "Golovko", new GregorianCalendar(1986, Calendar.MARCH, 12), 1100));
 
         ArrayList<Employee> devEmployees = new ArrayList();
-        qaEmployees.add(0, new Employee(1, "Vashchuk", new GregorianCalendar(1986, Calendar.DECEMBER, 8), 2000));
-        qaEmployees.add(0, new Employee(2, "Rebrov", new GregorianCalendar(1986, Calendar.FEBRUARY, 21), 2200));
-        qaEmployees.add(0, new Employee(3, "Luzhniy", new GregorianCalendar(1986, Calendar.MARCH, 3), 2503));
+        devEmployees.add(0, new Employee(1, "Vashchuk", new GregorianCalendar(1986, Calendar.DECEMBER, 8), 2000));
+        devEmployees.add(0, new Employee(2, "Rebrov", new GregorianCalendar(1986, Calendar.FEBRUARY, 21), 2200));
+        devEmployees.add(0, new Employee(3, "Luzhniy", new GregorianCalendar(1986, Calendar.MARCH, 3), 2503));
 
         Department qaDepartment = new Department("QADepartment", qaEmployees);
         Department devDepartment = new Department("DevDepartment", devEmployees);
@@ -31,10 +31,10 @@ public class Main {
 
         for (Department dep: departments) {
             System.out.println(dep.getZP());
-
+            dep.getEmployeesNames();
         }
 
-
 //        Company company = new Company(departments);
+
     }
 }

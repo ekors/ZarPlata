@@ -12,16 +12,12 @@ public class Department {
         this.employees = employees;
     }
 
-//    public void getEmployeesNames(int depIndex) {
-//        if (depIndex == 0) {
-//            ArrayList<Employee> employees1 = new ArrayList();
-//            employees1.addAll(0, employees);
-//            for (Employee emp : employees1) {
-//                String name = emp.getName();
-//                System.out.println(name);
-//            }
-//        }
-//    }
+    public void getEmployeesNames() {
+               for (Employee emp : employees) {
+                String name = emp.getName();
+                System.out.println(name);
+            }
+        }
 
     public int getZP() {
         int totalZP = 0;
