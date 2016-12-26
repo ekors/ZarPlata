@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.GregorianCalendar;
 
 /**
@@ -28,7 +27,7 @@ public class Main {
         departments.add(0, qaDepartment);
         departments.add(1, devDepartment);
 
-        Department.calcZP(departments);
+        Department.printZP(departments);
 
         Company company = new Company(departments);
     }

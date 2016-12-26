@@ -20,20 +20,24 @@ public class Department {
         }
     }
 
-    public static void calcZP(ArrayList<Department> arrayList1) {
-        for (Department department: arrayList1) {
-            System.out.println("ZP " + department.getName() + " = "  + department.getZP());
+    public void printZP() {
+        for (Employee emp: employees) {
+            System.out.println("ZP " + emp.getName() + " = "  + emp.getSalary());
         }
 
     }
 
 
-    private int getZP() {
+    public float getZP() {
         int totalZP = 0;
         for (Employee emp : employees) {
             totalZP += emp.getSalary();
         }
         return totalZP;
+    }
+
+    public int getEmployeesAmount() {
+        return employees.size();
     }
 
 
