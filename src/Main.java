@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 
 /**
@@ -22,19 +23,13 @@ public class Main {
 
         Department qaDepartment = new Department("QADepartment", qaEmployees);
         Department devDepartment = new Department("DevDepartment", devEmployees);
-//        System.out.println(qaDepartment.getEmployeesNames());
 
         ArrayList<Department> departments = new ArrayList();
         departments.add(0, qaDepartment);
         departments.add(1, devDepartment);
 
+        Department.calcZP(departments);
 
-        for (Department dep: departments) {
-            System.out.println(dep.getZP());
-            dep.getEmployeesNames();
-        }
-
-//        Company company = new Company(departments);
-
+        Company company = new Company(departments);
     }
 }
