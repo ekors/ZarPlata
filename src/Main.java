@@ -34,6 +34,8 @@ public class Main {
 //        Department.printZP(departments);
         System.out.println("-----------------------------------------------------");
         Company company = new Company(departments);
-        company.getEmployeesOfCompany();
+        System.out.println(company.getEmployeesOfCompany().getName());
+//        EqualSalaryScheme scheme = new EqualSalaryScheme();
+//        scheme.calcSalary(company);
     }
 }

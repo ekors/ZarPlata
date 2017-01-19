@@ -28,7 +28,6 @@ public class Company {
         Employee employee = null;
         for (Department department: departments) {
             employee = department.getEmployees();
-            System.out.println("employee " + employee.getName());
         }
         return employee;
     }

@@ -31,7 +31,7 @@ public class Department {
         Employee employee = null;
         for (Employee emp : employees) {
             employee = emp;
-            System.out.println("employee " + employee.getName());
+            System.out.println("сотрудник " + employee.getName());
         }
         return employee;
     }

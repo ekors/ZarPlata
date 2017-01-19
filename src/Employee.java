@@ -1,6 +1,4 @@
-import java.time.LocalDate;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by ievgen.korsun on 11/2/2016.
@@ -31,7 +29,7 @@ public class Employee {
         this.name = name;
     }
 
-    public int getSalary() {
+    public float getSalary() {
         return salary;
     }
 
