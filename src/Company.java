@@ -24,6 +24,15 @@ public class Company {
         return totalZP;
     }
 
+    public Employee getEmployeesOfCompany() {
+        Employee employee = null;
+        for (Department department: departments) {
+            employee = department.getEmployees();
+            System.out.println("employee " + employee.getName());
+        }
+        return employee;
+    }
+
 //    public int getFond() {
 //        return fond;
 //    }

@@ -27,8 +27,13 @@ public class Main {
         departments.add(0, qaDepartment);
         departments.add(1, devDepartment);
 
-        Department.printZP(departments);
+        // checks method
+//        qaDepartment.getEmployees();
 
+
+//        Department.printZP(departments);
+        System.out.println("-----------------------------------------------------");
         Company company = new Company(departments);
+        company.getEmployeesOfCompany();
     }
 }
