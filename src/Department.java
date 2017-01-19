@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 
 /**
@@ -27,14 +28,18 @@ public class Department {
 
     }
 
-    public Employee getEmployees() {
-        Employee employee = null;
-        for (Employee emp : employees) {
-            employee = emp;
-            System.out.println("сотрудник " + employee.getName());
-        }
-        return employee;
+    public ArrayList<Employee> getEmployees() {
+        return new ArrayList<>(employees);
     }
+
+    //    public Employee getEmployees() {
+//        Employee employee = null;
+//        for (Employee emp : employees) {
+//            employee = emp;
+//            System.out.println("сотрудник " + employee.getName());
+//        }
+//        return employee;
+//    }
 
     public float getZP() {
         int totalZP = 0;
@@ -43,6 +48,15 @@ public class Department {
         }
         return totalZP;
     }
+    public float getZPwithBonus() {
+        int totalZP = 0;
+        for (Employee emp : employees) {
+            totalZP += emp.getSalaryWithBonus();
+        }
+        return totalZP;
+    }
+
+
 
     public int getEmployeesAmount() {
         return employees.size();

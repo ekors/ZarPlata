@@ -33,11 +33,27 @@ public class Employee {
         return salary;
     }
 
+    public float getSalaryWithBonus() {
+        int currentMonth = Calendar.getInstance().get(Calendar.MONTH);
+        if (getBirthday().get(Calendar.MONTH) == currentMonth) {
+            return salary += Company.BIRTHDAY_BONUS;
+        } else return salary;
+
+    }
+
     public void setSalary(int salary) {
         this.salary = salary;
     }
 
     public Calendar getBirthday() {
         return birthday;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by ievgen.korsun on 11/2/2016.
@@ -9,6 +10,7 @@ public class Company {
 
 
     private float fond;
+    public static final float BIRTHDAY_BONUS = 1000;
 
     public Company(ArrayList<Department> departments) {
         this.departments = departments;
@@ -24,13 +26,31 @@ public class Company {
         return totalZP;
     }
 
-    public Employee getEmployeesOfCompany() {
-        Employee employee = null;
-        for (Department department: departments) {
-            employee = department.getEmployees();
+    public float getZPwithBonuses() {
+        int totalZP = 0;
+        for (Department department : departments) {
+            totalZP += department.getZPwithBonus();
         }
-        return employee;
+        return totalZP;
     }
+
+
+
+    public List<Employee> getEmployeesList() {
+        List<Employee> employeeList = new ArrayList<>();
+        for (Department dep: departments) {
+            employeeList.addAll(dep.getEmployees());
+        }
+        return employeeList;
+    }
+
+//    public Employee getEmployeesOfCompany() {
+//        Employee employee = null;
+//        for (Department department: departments) {
+//            employee = department.getEmployees();
+//        }
+//        return employee;
+//    }
 
 //    public int getFond() {
 //        return fond;
