@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by ievgen.korsun on 11/2/2016.
@@ -12,25 +9,42 @@ public class Company {
     private float fond;
     public static final float BIRTHDAY_BONUS = 1000;
 
-    public Company(ArrayList<Department> departments) {
+    public Company(ArrayList<Department> departments, float fond) {
         this.departments = departments;
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please enter a fond value: ");
+        fond = in.nextFloat();
+        if (fond < getZP()) {
+            throw new IllegalArgumentException("Fond value can't be less than totalZP value! totalZP is: " + getZP());
+
+        }
+        this.fond = fond;
     }
 
     private ArrayList<Department> departments;
 
+    //in current realization it uses getZPwithBonus() instead getZP() because of this method is used in constructor. Or need to make another method getZPwithBonuses() without printing information.
     public float getZP() {
         int totalZP = 0;
         for (Department department : departments) {
-            totalZP += department.getZP();
+            totalZP += department.getZPwithBonus();
         }
+//        System.out.println("TOTAL_ZP = " + totalZP);
         return totalZP;
     }
 
     public float getZPwithBonuses() {
         int totalZP = 0;
+        float bonuses = 0;
+        float currentBonus = 0;
         for (Department department : departments) {
             totalZP += department.getZPwithBonus();
+            bonuses = fond - totalZP;
+            currentBonus = bonuses / getEmployeesAmount();
         }
+        System.out.println("totalZP is: " + totalZP);
+        System.out.println("Bonuses value is: " + bonuses);
+        System.out.printf("Current bonus value for every employee is: %.2f\n", currentBonus);
         return totalZP;
     }
 
