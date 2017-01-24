@@ -5,24 +5,28 @@ import java.util.*;
  */
 public class Company {
 
-
+    private ArrayList<Department> departments;
     private float fond;
     public static final float BIRTHDAY_BONUS = 1000;
     private int totalZP;
     private float bonuses;
     private float currentBonus;
 
+
     public Company(ArrayList<Department> departments) {
         this.departments = departments;
+        fondVerification();
+    }
+
+    public void fondVerification() {
         do {
             Scanner in = new Scanner(System.in);
             System.out.println("Please enter a fond value: ");
             fond = in.nextFloat();
         }
-        while (fond < getZP());
+        while (getFond() < getZP());
     }
 
-    private ArrayList<Department> departments;
 
     public float getZP() {
         int totalZP = 0;
@@ -31,7 +35,6 @@ public class Company {
         }
         return totalZP;
     }
-
 
     public float getZPwithBonuses() {
 
@@ -49,8 +52,6 @@ public class Company {
         System.out.println("Bonuses value is: " + getBonuses());
         System.out.printf("Current bonus value for every employee is: %.2f\n", getCurrentBonus());
     }
-
-
 
     public List<Employee> getEmployeesList() {
         List<Employee> employeeList = new ArrayList<>();
@@ -71,6 +72,7 @@ public class Company {
     public int getDepartmentsAmount() {
         return departments.size();
     }
+
 
     public float getFond() {
         return fond;

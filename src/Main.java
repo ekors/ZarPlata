@@ -55,8 +55,8 @@ public class Main {
         //TODO create proportional scheme
         //TODO cover with unit tests
 
-        //TODO printZP in new method
-        //TODO do while cycle instead of exception for fond value
+        //TODO printZP in new method                                                done
+        //TODO do while cycle instead of exception for fond value                   done
         //TODO clear Company from service logic (create service class for these)
         //TODO clear Main class from logic. Transfer to DataGenerator class
 
