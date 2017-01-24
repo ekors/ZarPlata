@@ -36,7 +36,7 @@ public class Employee {
     public float getSalaryWithBonus() {
         int currentMonth = Calendar.getInstance().get(Calendar.MONTH);
         if (getBirthday().get(Calendar.MONTH) == currentMonth) {
-            return salary += Company.BIRTHDAY_BONUS;
+            return salary + Company.BIRTHDAY_BONUS;
         } else return salary;
 
     }

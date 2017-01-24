@@ -51,8 +51,15 @@ public class Main {
         System.out.println(scheme.calcSalary(company).toString());
         System.out.println("departmentsSize " + company.getDepartmentsAmount());
 
-        //TODO set fond to appropriate value (> zp with all bonuses
-        //TODO make some generator for Employees
+        //TODO create proportional scheme
         //TODO cover with unit tests
+
+        //TODO printZP in new method
+        //TODO do while cycle instead of exception for fond value
+        //TODO clear Company from service logic (create service class for these)
+        //TODO clear Main class from logic. Transfer to DataGenerator class
+
+
+
     }
 }

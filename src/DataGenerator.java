@@ -6,6 +6,8 @@ import java.util.*;
  */
 public class DataGenerator {
 
+
+
     public static void generateListOfEmployees (ArrayList<Employee> employeesList) {
         for (int i = 0; i < getRandomNumberInRange(10, 30); i++) {
             employeesList.add(new Employee(i + 1, "Employee " + (i + 1),new GregorianCalendar( getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1,12), getRandomNumberInRange(1, 28)), getRandomNumberInRange(1000, 5000)));
