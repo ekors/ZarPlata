@@ -49,6 +49,7 @@ public class Main {
         Company company = new Company(departments);
         EqualSalaryScheme scheme = new EqualSalaryScheme();
         System.out.println(scheme.calcSalary(company).toString());
+        company.printSalaryInfo();
         System.out.println("departmentsSize " + company.getDepartmentsAmount());
 
         //TODO create proportional scheme
