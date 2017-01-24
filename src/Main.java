@@ -49,6 +49,7 @@ public class Main {
         Company company = new Company(departments);
         EqualSalaryScheme scheme = new EqualSalaryScheme();
         System.out.println(scheme.calcSalary(company).toString());
+        System.out.println("departmentsSize " + company.getDepartmentsAmount());
 
         //TODO set fond to appropriate value (> zp with all bonuses
         //TODO make some generator for Employees

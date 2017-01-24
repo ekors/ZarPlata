@@ -77,6 +77,10 @@ public class Company {
         return size;
     }
 
+    public int getDepartmentsAmount() {
+        return departments.size();
+    }
+
     public float getFond() {
         return fond;
     }
