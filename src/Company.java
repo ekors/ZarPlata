@@ -9,7 +9,7 @@ public class Company {
     private float fond;
     public static final float BIRTHDAY_BONUS = 1000;
 
-    public Company(ArrayList<Department> departments, float fond) {
+    public Company(ArrayList<Department> departments) {
         this.departments = departments;
         Scanner in = new Scanner(System.in);
         System.out.println("Please enter a fond value: ");
@@ -18,18 +18,17 @@ public class Company {
             throw new IllegalArgumentException("Fond value can't be less than totalZP value! totalZP is: " + getZP());
 
         }
-        this.fond = fond;
     }
 
     private ArrayList<Department> departments;
 
-    //in current realization it uses getZPwithBonus() instead getZP() because of this method is used in constructor. Or need to make another method getZPwithBonuses() without printing information.
+    //in current realization it uses getZPwithBonus() instead getZP() because this method is used in constructor. Or need to make another method getZPwithBonuses() without printing information.
     public float getZP() {
         int totalZP = 0;
         for (Department department : departments) {
             totalZP += department.getZPwithBonus();
         }
-//        System.out.println("TOTAL_ZP = " + totalZP);
+        System.out.println("TOTAL_ZP = " + totalZP);
         return totalZP;
     }
 

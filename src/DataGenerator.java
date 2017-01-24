@@ -1,16 +1,22 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by Ievgen.Korsun on 1/20/2017.
  */
 public class DataGenerator {
-    public void generateListOfEmployees () {
-        ArrayList<Employee> employeesList = new ArrayList<>();
+
+    public static void generateListOfEmployees (ArrayList<Employee> employeesList) {
         for (int i = 0; i < getRandomNumberInRange(10, 30); i++) {
-            employeesList.add(new Employee(i + 1, "Employee " + (i + 1), getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1000, 5000)));
+            employeesList.add(new Employee(i + 1, "Employee " + (i + 1),new GregorianCalendar( getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1,12), getRandomNumberInRange(1, 28)), getRandomNumberInRange(1000, 5000)));
         }
+    }
+
+    public static String format(Calendar calendar){
+        SimpleDateFormat fmt = new SimpleDateFormat("dd-MMM-yyyy");
+        fmt.setCalendar(calendar);
+        String dateFormatted = fmt.format(calendar.getTime());
+        return dateFormatted;
     }
 
     public static int getRandomNumberInRange(int min, int max) {
