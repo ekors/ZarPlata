@@ -7,11 +7,20 @@ import java.util.*;
 public class DataGenerator {
 
 
+    public static ArrayList<Department> generateLists() {
+        ArrayList<Department> departments = new ArrayList<>();
+        for (int i =0; i < getRandomNumberInRange(2, 5); i++) {
+            departments.add(new Department("Department " + (i + 1), generateListOfEmployees()));
+        }
+        return departments;
+    }
 
-    public static void generateListOfEmployees (ArrayList<Employee> employeesList) {
+    public static ArrayList<Employee> generateListOfEmployees () {
+        ArrayList<Employee> employeesList = new ArrayList<>();
         for (int i = 0; i < getRandomNumberInRange(10, 30); i++) {
             employeesList.add(new Employee(i + 1, "Employee " + (i + 1),new GregorianCalendar( getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1,12), getRandomNumberInRange(1, 28)), getRandomNumberInRange(1000, 5000)));
         }
+        return employeesList;
     }
 
     public static String format(Calendar calendar){

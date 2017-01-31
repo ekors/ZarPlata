@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
 
 /**
  * Created by ievgen.korsun on 11/2/2016.
@@ -14,18 +12,21 @@ public class Department {
         this.employees = employees;
     }
 
-    public void getEmployeesNames() {
+    public String getEmployeesNames() {
+        String name = "";
         for (Employee emp : employees) {
-            String name = emp.getName();
-            System.out.println(name);
+            name = emp.getName();
         }
+        return name;
     }
 
-    public void printZP() {
+    public float printZP() {
+        float zp = 0;
         for (Employee emp: employees) {
-            System.out.println("ZP " + emp.getName() + " = "  + emp.getSalary());
+            zp = emp.getSalary();
+//            System.out.println("ZP " + emp.getName() + " = "  + emp.getSalary());
         }
-
+        return zp;
     }
 
     public ArrayList<Employee> getEmployees() {

@@ -25,6 +25,9 @@ public class Company {
             fond = in.nextFloat();
         }
         while (getFond() < getZP());
+        if (getFond() < getZP()) {
+            System.out.println("Fond value can't be < ZP");
+        }
     }
 
 
