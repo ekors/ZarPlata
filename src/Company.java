@@ -9,12 +9,6 @@ public class Company {
     private float fond;
     public static final float BIRTHDAY_BONUS = 1000;
 
-    // initialize in methods
-    private int totalZP;
-    private float bonuses;
-    private float currentBonus;
-
-
     public Company(ArrayList<Department> departments) {
         this.departments = departments;
         fondVerification();
@@ -42,20 +36,25 @@ public class Company {
     }
 
     public float getZPwithBonuses() {
-
-
+        int totalZP = 0;
         for (Department department : departments) {
             totalZP += department.getZPwithBonus();
-            bonuses = fond - totalZP;
-            currentBonus = bonuses / getEmployeesAmount();
         }
         return totalZP;
     }
 
-    public void printSalaryInfo () {
-        System.out.println("totalZP is: " + getTotalZP());
-        System.out.println("Bonuses value is: " + getBonuses());
-        System.out.printf("Current bonus value for every employee is: %.2f\n", getCurrentBonus());
+    public void printSalaryInfo() {
+        float currentBonus = 0;
+        int totalZP = 0;
+        float bonuses = 0;
+        for (Department department : departments) {
+            totalZP += department.getZPwithBonus();
+            bonuses = fond - totalZP;
+            currentBonus = bonuses / getEmployeesAmount();
+            System.out.println("current bonus is: " + currentBonus);
+        }
+        System.out.println("bonus is: " + bonuses);
+        System.out.println("totalZP is: " + getZPwithBonuses());
     }
 
     public List<Employee> getEmployeesList() {
@@ -87,15 +86,15 @@ public class Company {
         return departments;
     }
 
-    public int getTotalZP() {
-        return totalZP;
-    }
-    public float getBonuses() {
-        return bonuses;
-    }
-    public float getCurrentBonus() {
-        return currentBonus;
-    }
+//    public int getTotalZP() {
+//        return totalZP;
+//    }
+//    public float getBonuses() {
+//        return bonuses;
+//    }
+//    public float getCurrentBonus() {
+//        return currentBonus;
+//    }
 
 
 }

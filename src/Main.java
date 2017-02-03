@@ -1,8 +1,4 @@
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Random;
 
 /**
  * Created by ievgen.korsun on 11/2/2016.
@@ -31,7 +27,7 @@ public class Main {
 //        CHECKER
         for (int i = 0; i < departments.size(); i++) {
             for (Employee emp : departments.get(i).getEmployees()) {
-                System.out.println("id: [" + emp.getId() + "] " + emp.getName());
+                System.out.println("id: [" + emp.getId() + "] " + emp.getName() + " ZP " + emp.getSalaryWithBonus());
             }
             System.out.println("--------------------------------------");
         }
