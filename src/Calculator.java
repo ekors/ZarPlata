@@ -6,5 +6,5 @@ import java.util.Map;
  * Created by Ievgen.Korsun on 11/30/2016.
  */
 public interface Calculator {
-    public Map<Employee, Float> calcSalary(Company company);
+    Map<Employee, Float> calcSalary(Company company);
 }

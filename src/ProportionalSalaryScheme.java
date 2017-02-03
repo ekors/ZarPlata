@@ -12,7 +12,7 @@ public class ProportionalSalaryScheme implements Calculator{
         float departmentBonus = totalBonus / company.getDepartmentsAmount();
 
 
-        float currentBonus = 0;
+        float currentBonus = 0; //move to loop
         for (Department dep : company.getDepartments()) {
             currentBonus = departmentBonus / dep.getEmployees().size();
         }

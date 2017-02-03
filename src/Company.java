@@ -8,6 +8,8 @@ public class Company {
     private ArrayList<Department> departments;
     private float fond;
     public static final float BIRTHDAY_BONUS = 1000;
+
+    // initialize in methods
     private int totalZP;
     private float bonuses;
     private float currentBonus;
@@ -18,13 +20,13 @@ public class Company {
         fondVerification();
     }
 
-    public void fondVerification() {
+    public void fondVerification() { // move to main or to some class
         do {
             Scanner in = new Scanner(System.in);
             System.out.println("Please enter a fond value: ");
             fond = in.nextFloat();
         }
-        while (getFond() < getZP());
+        while (getFond() < getZPwithBonuses());
         if (getFond() < getZP()) {
             System.out.println("Fond value can't be < ZP");
         }
