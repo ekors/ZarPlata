@@ -5,7 +5,7 @@ import java.util.*;
  * Created by Ievgen.Korsun on 1/20/2017.
  */
 public class DataGenerator {
-
+    private static int idCount = 0;
 
     public static ArrayList<Department> generateLists() {
         ArrayList<Department> departments = new ArrayList<>();
@@ -17,9 +17,11 @@ public class DataGenerator {
 
     public static ArrayList<Employee> generateListOfEmployees () {
         ArrayList<Employee> employeesList = new ArrayList<>();
-        for (int i = 0; i < getRandomNumberInRange(10, 30); i++) {
-            employeesList.add(new Employee(i + 1, "Employee " + (i + 1),new GregorianCalendar( getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1,12), getRandomNumberInRange(1, 28)), getRandomNumberInRange(1000, 5000)));
+        int i;
+        for (i = 0; i < getRandomNumberInRange(10, 30); i++) {
+            employeesList.add(new Employee(idCount + (i+1), "Employee " + (idCount +(i + 1)),new GregorianCalendar( getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1,12), getRandomNumberInRange(1, 28)), getRandomNumberInRange(1000, 5000)));
         }
+        idCount += i;
         return employeesList;
     }
 
