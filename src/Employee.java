@@ -8,13 +8,21 @@ public class Employee {
     private String name;
     private int salary;
     private Calendar birthday;
+    private Calendar hireDate;
     private Department department;
+
 
     public Employee(int id, String name, Calendar birthday, int salary) {
         this.id = id;
         this.name = name;
         this.birthday = birthday;
         this.salary = salary;
+    }
+
+    public Employee(String name, Calendar birthday, Calendar hireDate) {
+        this.name = name;
+        this.birthday = birthday;
+        this.hireDate = hireDate;
     }
 
     public int getId() {
@@ -47,6 +55,10 @@ public class Employee {
 
     public Calendar getBirthday() {
         return birthday;
+    }
+
+    public Calendar getHireDate() {
+        return hireDate;
     }
 
     @Override
