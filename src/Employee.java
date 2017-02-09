@@ -19,6 +19,16 @@ public class Employee {
         this.salary = salary;
     }
 
+
+    //either
+//    public Employee(int id, String name, int salary, Calendar birthday, Calendar hireDate) {
+//        this.id = id;
+//        this.name = name;
+//        this.salary = salary;
+//        this.birthday = birthday;
+//        this.hireDate = hireDate;
+//    }
+    //or
     public Employee(String name, Calendar birthday, Calendar hireDate) {
         this.name = name;
         this.birthday = birthday;
