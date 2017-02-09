@@ -15,3 +15,6 @@ public class OtherEmployee extends Employee{
         return description;
     }
 }
+
+
+//rename > Director with large bonus

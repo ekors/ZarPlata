@@ -41,6 +41,12 @@ public class Main {
         //TODO move fondVerification() to Main or other new Class
         //TODO clear Company from service logic (create service class for these)
 
+        //TODO constructor
+        //TODO make new collection Managers
+        //TODO generate managers using dataGenerator
+        //TODO for changing type need rewight type Emo > Man and back
+        //TODO change overrided method getZPWithBonuses
+
 
     }
 }

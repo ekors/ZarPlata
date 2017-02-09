@@ -13,6 +13,7 @@ public class Manager extends Employee {
         this.listOfSubordinates = listOfSubordinates;
     }
 
+    //super.getSalaryWithBonus() + listEmployees with PREMIA
     @Override
     public float getSalaryWithBonus() {
         int currentMonth = Calendar.getInstance().get(Calendar.MONTH);
