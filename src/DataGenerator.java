@@ -6,12 +6,14 @@ import java.util.*;
  */
 public class DataGenerator {
     private static int idCount = 0;
+    private static int departmentNumber = 0;
 
     public static ArrayList<Department> generateLists() {
         ArrayList<Department> departments = new ArrayList<>();
-        for (int i =0; i < getRandomNumberInRange(2, 5); i++) {
+        for (int i =0; i < getRandomNumberInRange(2,5); i++) {
             departments.add(new Department("Department " + (i + 1), generateListOfEmployees()));
         }
+        departmentNumber = departments.size();
         return departments;
     }
 
@@ -19,11 +21,30 @@ public class DataGenerator {
         ArrayList<Employee> employeesList = new ArrayList<>();
         int i;
         for (i = 0; i < getRandomNumberInRange(10, 30); i++) {
-            employeesList.add(new Employee(idCount + (i+1), "Employee " + (idCount +(i + 1)),new GregorianCalendar( getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1,12), getRandomNumberInRange(1, 28)), getRandomNumberInRange(1000, 5000)));
+            employeesList.add(new Employee(idCount + (i+1), "Employee " + (idCount +(i + 1)),new GregorianCalendar( getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1,12), getRandomNumberInRange(1, 28)), new GregorianCalendar( getRandomNumberInRange(2010, 2016), getRandomNumberInRange(1,12), getRandomNumberInRange(1, 28)), getRandomNumberInRange(1000, 5000)));
         }
         idCount += i;
         return employeesList;
     }
+
+    public static int selectDepartment(){
+        int j = 0;
+        for (int i = 0; i <= departmentNumber; i++) {
+            j += i;
+        }
+        return j;
+    }
+
+//    public static ArrayList<Employee> generateListOfManagers () {
+//        ArrayList<Employee> managerList = new ArrayList<>();
+//        Department listOfEmployees;
+//        int i;
+//        for (i = 0; i < getRandomNumberInRange(10, 30); i++) {
+//            managerList.add(new Manager(idCount + (i+1), "Employee " + (idCount +(i + 1)),new GregorianCalendar( getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1,12), getRandomNumberInRange(1, 28)), new GregorianCalendar( getRandomNumberInRange(2010, 2016), getRandomNumberInRange(1,12), getRandomNumberInRange(1, 28)), getRandomNumberInRange(1000, 5000), listOfEmployees.getEmployees()));
+//        }
+//        idCount += i;
+//        return managerList;
+//    }
 
     public static String format(Calendar calendar){
         SimpleDateFormat fmt = new SimpleDateFormat("dd-MMM-yyyy");

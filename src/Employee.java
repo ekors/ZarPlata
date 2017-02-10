@@ -9,28 +9,12 @@ public class Employee {
     private int salary;
     private Calendar birthday;
     private Calendar hireDate;
-    private Department department;
 
 
-    public Employee(int id, String name, Calendar birthday, int salary) {
+    public Employee(int id, String name, Calendar birthday, Calendar hireDate, int salary) {
         this.id = id;
         this.name = name;
-        this.birthday = birthday;
         this.salary = salary;
-    }
-
-
-    //either
-//    public Employee(int id, String name, int salary, Calendar birthday, Calendar hireDate) {
-//        this.id = id;
-//        this.name = name;
-//        this.salary = salary;
-//        this.birthday = birthday;
-//        this.hireDate = hireDate;
-//    }
-    //or
-    public Employee(String name, Calendar birthday, Calendar hireDate) {
-        this.name = name;
         this.birthday = birthday;
         this.hireDate = hireDate;
     }

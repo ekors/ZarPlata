@@ -5,21 +5,18 @@ import java.util.Calendar;
  * Created by Ievgen.Korsun on 2/6/2017.
  */
 public class Manager extends Employee {
-    private static float MANAGERS_PREMIA = 1000;
+    private static final float MANAGERS_PREMIA = 1000;
     ArrayList<Employee> listOfSubordinates;
 
-    public Manager(String name, Calendar birthday, Calendar hireDate, ArrayList<Employee> listOfSubordinates) {
-        super(name, birthday, hireDate);
+    public Manager(int id, String name, int salary, Calendar birthday, Calendar hireDate, ArrayList<Employee> listOfSubordinates) {
+        super(id, name, birthday, hireDate, salary);
         this.listOfSubordinates = listOfSubordinates;
     }
 
-    //super.getSalaryWithBonus() + listEmployees with PREMIA
+
     @Override
     public float getSalaryWithBonus() {
-        int currentMonth = Calendar.getInstance().get(Calendar.MONTH);
-        if (getBirthday().get(Calendar.MONTH) == currentMonth) {
-            return getSalary() + Company.BIRTHDAY_BONUS + MANAGERS_PREMIA;
-        } else return getSalary() + MANAGERS_PREMIA;
+        return super.getSalaryWithBonus() + (MANAGERS_PREMIA * getListOfSubordinates().size());
     }
 
     public ArrayList<Employee> getListOfSubordinates() {

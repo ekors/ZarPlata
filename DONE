@@ -1,0 +1,5 @@
+1 printSalaryInfo() is edited back, because it prints info by every Department using Proportional scheme;
+2 constructors of Employee and children classes
+3 OtherEmployee >> Director.
+4 Overrided getZPWithBonuses() in children classes
+5

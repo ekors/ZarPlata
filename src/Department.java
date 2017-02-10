@@ -33,15 +33,6 @@ public class Department {
         return new ArrayList<>(employees);
     }
 
-    //    public Employee getEmployees() {
-//        Employee employee = null;
-//        for (Employee emp : employees) {
-//            employee = emp;
-//            System.out.println("сотрудник " + employee.getName());
-//        }
-//        return employee;
-//    }
-
     public float getZP() {
         int totalZP = 0;
         for (Employee emp : employees) {
