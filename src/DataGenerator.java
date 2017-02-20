@@ -11,13 +11,17 @@ public class DataGenerator {
     private static int departmentCount = 0;
     private static ArrayList<Manager> managersList = new ArrayList<>();
 
+    //TODO generate starting from Manager: Department > Manager > Employees
+    //TODO create new method generateDepartment() use for statement
+
     public static ArrayList<Department> generateLists() {
         ArrayList<Department> departments = new ArrayList<>();
         String managerName = "Manager ";
         int i;
         for (i = 0; i < getRandomNumberInRange(2, 5); i++) {
-            departments.add(new Department("Department " + (i + 1), generateListOfEmployees(), managerName + (managerIdCount + (i + 1))));
-            managersList.add(new Manager(managerIdCount + (i + 1), managerName + (managerIdCount + (i + 1)), getRandomNumberInRange(5000, 10000), new GregorianCalendar(getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), new GregorianCalendar(getRandomNumberInRange(2010, 2017), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), departments.get(i).getEmployees()));
+            ArrayList<Employee> employees = generateListOfEmployees();
+            departments.add(new Department("Department " + (i + 1), employees, managerName + (managerIdCount + (i + 1))));
+            managersList.add(new Manager(managerIdCount + (i + 1), managerName + (managerIdCount + (i + 1)), getRandomNumberInRange(5000, 10000), new GregorianCalendar(getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), new GregorianCalendar(getRandomNumberInRange(2010, 2017), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), employees));
         }
         managerIdCount += i;
         departmentNumber = departments.size();

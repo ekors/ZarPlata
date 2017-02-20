@@ -43,6 +43,7 @@ public class Company {
         return totalZP;
     }
 
+    //TODO correct method
     public void printSalaryInfo() {
         float currentBonus = 0;
         int totalZP = 0;
@@ -50,7 +51,7 @@ public class Company {
         for (Department department : departments) {
             totalZP += department.getZPwithBonus();
             bonuses = fond - totalZP;
-            currentBonus = bonuses / getEmployeesAmount();
+            currentBonus = (fond - totalZP) / getEmployeesAmount();
             System.out.println("current bonus is: " + currentBonus);
         }
 
