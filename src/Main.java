@@ -1,3 +1,5 @@
+import javax.print.attribute.standard.DateTimeAtCompleted;
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -9,16 +11,14 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<Department> departments = DataGenerator.generateLists();
-        ArrayList<Employee> managers = new ArrayList<>();
-        managers.add(new Manager(1, "Manager1", 5000, new GregorianCalendar(1986, Calendar.APRIL, 20), new GregorianCalendar(1986, Calendar.APRIL, 20), departments.get(DataGenerator.selectDepartment()).getEmployees()));
-        managers.add(new Manager(2, "Manager2", 5000, new GregorianCalendar(1986, Calendar.APRIL, 20), new GregorianCalendar(1986, Calendar.APRIL, 20), departments.get(DataGenerator.selectDepartment()).getEmployees()));
 
-        for (Employee emp: managers) {
-            System.out.println(emp.getName() + " " + emp.getSalaryWithBonus());
+        for (int i = 0; i < departments.size(); i++) {
+            System.out.println(departments.get(i).getManagerName());
+            System.out.println(DataGenerator.getManagersList().get(i).getListOfSubordinates());
         }
 
-//        System.out.println(managers.get(0).getName());
-//        System.out.println(managers.get(0).getSalaryWithBonus());
+        System.out.println(DataGenerator.getManagersList());
+
 
         //CHECKER
 //        for (Employee emp : departments.get(0).getEmployees()) {
@@ -27,14 +27,14 @@ public class Main {
 
 //        System.out.println("-----------------------------------------------------");
 
-//        Company company = new Company(departments);
-////        EqualSalaryScheme equalSalaryScheme = new EqualSalaryScheme();
-////        System.out.println(equalSalaryScheme.calcSalary(company).toString());
-////        company.printSalaryInfo();
-//
-//        ProportionalSalaryScheme proportionalSalaryScheme = new ProportionalSalaryScheme();
-//        System.out.println(proportionalSalaryScheme.calcSalary(company).toString());
+        Company company = new Company(departments);
+//        EqualSalaryScheme equalSalaryScheme = new EqualSalaryScheme();
+//        System.out.println(equalSalaryScheme.calcSalary(company).toString());
 //        company.printSalaryInfo();
+
+        ProportionalSalaryScheme proportionalSalaryScheme = new ProportionalSalaryScheme();
+        System.out.println(proportionalSalaryScheme.calcSalary(company).toString());
+        company.printSalaryInfo();
 //
 ////        CHECKER
 //        for (int i = 0; i < departments.size(); i++) {

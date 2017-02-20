@@ -6,10 +6,12 @@ import java.util.ArrayList;
 public class Department {
     private String name;
     private ArrayList<Employee> employees;
+    private String managerName;
 
-    public Department(String name, ArrayList<Employee> employees) {
+    public Department(String name, ArrayList<Employee> employees, String managerName) {
         this.name = name;
         this.employees = employees;
+        this.managerName = managerName;
     }
 
     public String getEmployeesNames() {
@@ -20,9 +22,17 @@ public class Department {
         return name;
     }
 
+    public int getEmployeeId() {
+        int i = 0;
+        for (Employee emp : employees) {
+            i = emp.getId();
+        }
+        return i;
+    }
+
     public float printZP() {
         float zp = 0;
-        for (Employee emp: employees) {
+        for (Employee emp : employees) {
             zp = emp.getSalary();
 //            System.out.println("ZP " + emp.getName() + " = "  + emp.getSalary());
         }
@@ -40,6 +50,7 @@ public class Department {
         }
         return totalZP;
     }
+
     public float getZPwithBonus() {
         int totalZP = 0;
         for (Employee emp : employees) {
@@ -47,7 +58,6 @@ public class Department {
         }
         return totalZP;
     }
-
 
 
     public int getEmployeesAmount() {
@@ -63,5 +73,7 @@ public class Department {
         this.name = name;
     }
 
-
+    public String getManagerName() {
+        return managerName;
+    }
 }

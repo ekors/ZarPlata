@@ -6,34 +6,51 @@ import java.util.*;
  */
 public class DataGenerator {
     private static int idCount = 0;
+    private static int managerIdCount = 0;
     private static int departmentNumber = 0;
+    private static int departmentCount = 0;
+    private static ArrayList<Manager> managersList = new ArrayList<>();
 
     public static ArrayList<Department> generateLists() {
         ArrayList<Department> departments = new ArrayList<>();
-        for (int i =0; i < getRandomNumberInRange(2,5); i++) {
-            departments.add(new Department("Department " + (i + 1), generateListOfEmployees()));
+        String managerName = "Manager ";
+        int i;
+        for (i = 0; i < getRandomNumberInRange(2, 5); i++) {
+            departments.add(new Department("Department " + (i + 1), generateListOfEmployees(), managerName + (managerIdCount + (i + 1))));
+            managersList.add(new Manager(managerIdCount + (i + 1), managerName + (managerIdCount + (i + 1)), getRandomNumberInRange(5000, 10000), new GregorianCalendar(getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), new GregorianCalendar(getRandomNumberInRange(2010, 2017), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), departments.get(i).getEmployees()));
         }
+        managerIdCount += i;
         departmentNumber = departments.size();
         return departments;
     }
 
-    public static ArrayList<Employee> generateListOfEmployees () {
+    public static ArrayList<Employee> generateListOfEmployees() {
         ArrayList<Employee> employeesList = new ArrayList<>();
         int i;
         for (i = 0; i < getRandomNumberInRange(10, 30); i++) {
-            employeesList.add(new Employee(idCount + (i+1), "Employee " + (idCount +(i + 1)),new GregorianCalendar( getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1,12), getRandomNumberInRange(1, 28)), new GregorianCalendar( getRandomNumberInRange(2010, 2016), getRandomNumberInRange(1,12), getRandomNumberInRange(1, 28)), getRandomNumberInRange(1000, 5000)));
+            employeesList.add(new Employee(idCount + (i + 1), "Employee " + (idCount + (i + 1)), new GregorianCalendar(getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), new GregorianCalendar(getRandomNumberInRange(2010, 2017), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), getRandomNumberInRange(1000, 5000)));
         }
         idCount += i;
         return employeesList;
     }
 
-    public static int selectDepartment(){
-        int j = 0;
-        for (int i = 0; i <= departmentNumber; i++) {
-            j += i;
+
+    public static int selectDepartment() {
+        int i;
+        for (i = 0; i < departmentNumber; i++) {
+
         }
-        return j;
+        departmentCount += i;
+        return departmentCount;
     }
+
+    //    public static ArrayList<Employee> generateListOfManagers() {
+//        ArrayList<Employee> managersList = new ArrayList<>();
+//
+//        for(int i = 0; i < departmentNumber; i++) {
+//            managersList.add(new Manager(i, "Manager " + i, getRandomNumberInRange(5000, 10000), new GregorianCalendar(getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1,12), getRandomNumberInRange(1,28)), new GregorianCalendar(getRandomNumberInRange(2010, 2017), getRandomNumberInRange(1,12), getRandomNumberInRange(1,28)), dep)
+//        }
+//    }
 
 //    public static ArrayList<Employee> generateListOfManagers () {
 //        ArrayList<Employee> managerList = new ArrayList<>();
@@ -46,7 +63,7 @@ public class DataGenerator {
 //        return managerList;
 //    }
 
-    public static String format(Calendar calendar){
+    public static String format(Calendar calendar) {
         SimpleDateFormat fmt = new SimpleDateFormat("dd-MMM-yyyy");
         fmt.setCalendar(calendar);
         String dateFormatted = fmt.format(calendar.getTime());
@@ -59,5 +76,13 @@ public class DataGenerator {
         }
         Random r = new Random();
         return r.nextInt((max - min) + 1) + min;
+    }
+
+    public static int getDepartmentNumber() {
+        return departmentNumber;
+    }
+
+    public static ArrayList<Manager> getManagersList() {
+        return managersList;
     }
 }
