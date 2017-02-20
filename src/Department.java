@@ -6,12 +6,11 @@ import java.util.ArrayList;
 public class Department {
     private String name;
     private ArrayList<Employee> employees;
-    private String managerName;
+    private ArrayList<Manager> managers;
 
-    public Department(String name, ArrayList<Employee> employees, String managerName) {
+    public Department(String name, ArrayList<Employee> employees) {
         this.name = name;
         this.employees = employees;
-        this.managerName = managerName;
     }
 
     public String getEmployeesNames() {
@@ -41,6 +40,10 @@ public class Department {
 
     public ArrayList<Employee> getEmployees() {
         return new ArrayList<>(employees);
+    }
+
+    public ArrayList<Manager> getManagers() {
+        return managers;
     }
 
     public float getZP() {
@@ -73,7 +76,4 @@ public class Department {
         this.name = name;
     }
 
-    public String getManagerName() {
-        return managerName;
-    }
 }
