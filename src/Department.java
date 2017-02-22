@@ -8,9 +8,10 @@ public class Department {
     private ArrayList<Employee> employees;
     private ArrayList<Manager> managers;
 
-    public Department(String name, ArrayList<Employee> employees) {
+    public Department(String name, ArrayList<Manager> managers, ArrayList<Employee> employees) {
         this.name = name;
         this.employees = employees;
+        this.managers = managers;
     }
 
     public String getEmployeesNames() {

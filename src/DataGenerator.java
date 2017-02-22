@@ -6,37 +6,30 @@ import java.util.*;
  */
 public class DataGenerator {
     private static int idCount = 0;
-    private static int departmentNumber = 0;
-    private static int departmentCount = 0;
-
 
     //TODO generate starting from Manager: Department > Manager > Employees
 
 
     public static Department generateDepartment() {
-        Department department = new Department("Department ", generateManagers());
+        Department department = new Department("Department ", generateManagers(2, 3), generateListOfEmployees(2, 6));
         return department;
     }
 
-    public static ArrayList<Department> generateDepartments() {
+    public static ArrayList<Department> generateDepartments(int minValue, int maxValue) {
         ArrayList<Department> departments = new ArrayList<>();
-        for (int i = 0; i < getRandomNumberInRange(2, 5); i++) {
+        for (int i = 0; i < getRandomNumberInRange(minValue, maxValue); i++) {
             departments.add(generateDepartment());
         }
         return departments;
     }
 
-    public static ArrayList<Employee> generateManagers() {
-        ArrayList<Employee> managerList = new ArrayList<>();
-        for (int i =0; i < getRandomNumberInRange(3,6); i++) {
-            managerList.add((Manager) new Manager(i, "Manager", getRandomNumberInRange(5000, 10000), new GregorianCalendar(getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), new GregorianCalendar(getRandomNumberInRange(2010, 2017), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), generateListOfEmployees(3,6)));
+    public static ArrayList<Manager> generateManagers(int minValue, int maxValue) {
+        ArrayList<Manager> managerList = new ArrayList<>();
+        for (int i =0; i < getRandomNumberInRange(minValue, maxValue); i++) {
+            managerList.add(new Manager(i, "Manager", getRandomNumberInRange(5000, 10000), new GregorianCalendar(getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), new GregorianCalendar(getRandomNumberInRange(2010, 2017), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), generateListOfEmployees(3,6)));
         }
         return managerList;
     }
-
-    //private static int managerIdCount = 0;
-    //managersList.add(new Manager(managerIdCount + (i + 1), managerName + (managerIdCount + (i + 1)), getRandomNumberInRange(5000, 10000), new GregorianCalendar(getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), new GregorianCalendar(getRandomNumberInRange(2010, 2017), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), employees));
-    //managerIdCount += i;
 
     public static ArrayList<Employee> generateListOfEmployees(int minValue, int maxValue) {
         ArrayList<Employee> employeesList = new ArrayList<>();
@@ -48,32 +41,11 @@ public class DataGenerator {
         return employeesList;
     }
 
-
-    public static int selectDepartment() {
-        int i;
-        for (i = 0; i < departmentNumber; i++) {
-
-        }
-        departmentCount += i;
-        return departmentCount;
-    }
-
-    public static String format(Calendar calendar) {
-        SimpleDateFormat fmt = new SimpleDateFormat("dd-MMM-yyyy");
-        fmt.setCalendar(calendar);
-        String dateFormatted = fmt.format(calendar.getTime());
-        return dateFormatted;
-    }
-
     public static int getRandomNumberInRange(int min, int max) {
         if (min >= max) {
             throw new IllegalArgumentException("max must be greater than min");
         }
         Random r = new Random();
         return r.nextInt((max - min) + 1) + min;
-    }
-
-    public static int getDepartmentNumber() {
-        return departmentNumber;
     }
 }

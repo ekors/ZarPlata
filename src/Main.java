@@ -6,21 +6,9 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<Department> departments = DataGenerator.generateDepartments();
+        ArrayList<Department> departments = DataGenerator.generateDepartments(3, 4);
 
-//        for (int i = 0; i < departments.size(); i++) {
-//            System.out.println(departments.get(i).getEmployeeId());
-//        }
-
-        System.out.println(departments.get(0).getEmployeesNames());
-
-        if (departments.get(0).getEmployees().get(0) instanceof Employee) {
-            System.out.println("EMPLOYEE");
-        } else if (departments.get(0).getEmployees().get(0) instanceof Employee) {
-            System.out.println("MANAGER");
-        } else {
-            System.out.println("DIFFERENT");
-        }
+        System.out.println(departments.get(0).getManagers());
 
         //CHECKER
 //        for (Employee emp : departments.get(0).getEmployees()) {
