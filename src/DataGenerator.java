@@ -9,6 +9,23 @@ public class DataGenerator {
 
     //TODO generate starting from Manager: Department > Manager > Employees
 
+    public static ArrayList<Employee> generateListOfEmployees(int minValue, int maxValue) {
+        ArrayList<Employee> employeesList = new ArrayList<>();
+        int i;
+        for (i = 0; i < getRandomNumberInRange(minValue, maxValue); i++) {
+            employeesList.add(new Employee(idCount + (i + 1), "Employee " + (idCount + (i + 1)), new GregorianCalendar(getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), new GregorianCalendar(getRandomNumberInRange(2010, 2017), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), getRandomNumberInRange(1000, 5000)));
+        }
+        idCount += i;
+        return employeesList;
+    }
+
+    public static ArrayList<Manager> generateManagers(int minValue, int maxValue) {
+        ArrayList<Manager> managerList = new ArrayList<>();
+        for (int i =0; i < getRandomNumberInRange(minValue, maxValue); i++) {
+            managerList.add(new Manager(i, "Manager", getRandomNumberInRange(5000, 10000), new GregorianCalendar(getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), new GregorianCalendar(getRandomNumberInRange(2010, 2017), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), generateListOfEmployees(3,6)));
+        }
+        return managerList;
+    }
 
     public static Department generateDepartment() {
         Department department = new Department("Department ", generateManagers(2, 3), generateListOfEmployees(2, 6));
@@ -21,24 +38,6 @@ public class DataGenerator {
             departments.add(generateDepartment());
         }
         return departments;
-    }
-
-    public static ArrayList<Manager> generateManagers(int minValue, int maxValue) {
-        ArrayList<Manager> managerList = new ArrayList<>();
-        for (int i =0; i < getRandomNumberInRange(minValue, maxValue); i++) {
-            managerList.add(new Manager(i, "Manager", getRandomNumberInRange(5000, 10000), new GregorianCalendar(getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), new GregorianCalendar(getRandomNumberInRange(2010, 2017), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), generateListOfEmployees(3,6)));
-        }
-        return managerList;
-    }
-
-    public static ArrayList<Employee> generateListOfEmployees(int minValue, int maxValue) {
-        ArrayList<Employee> employeesList = new ArrayList<>();
-        int i;
-        for (i = 0; i < getRandomNumberInRange(minValue, maxValue); i++) {
-            employeesList.add(new Employee(idCount + (i + 1), "Employee " + (idCount + (i + 1)), new GregorianCalendar(getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), new GregorianCalendar(getRandomNumberInRange(2010, 2017), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), getRandomNumberInRange(1000, 5000)));
-        }
-        idCount += i;
-        return employeesList;
     }
 
     public static int getRandomNumberInRange(int min, int max) {
