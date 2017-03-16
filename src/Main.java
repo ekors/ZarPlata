@@ -17,11 +17,17 @@ public class Main {
 
 //        System.out.println("-----------------------------------------------------");
 
-//        Company company = new Company(departments);
-////        EqualSalaryScheme equalSalaryScheme = new EqualSalaryScheme();
-////        System.out.println(equalSalaryScheme.calcSalary(company).toString());
-////        company.printSalaryInfo();
-//
+        Company company = new Company(departments);
+        EqualSalaryScheme equalSalaryScheme = new EqualSalaryScheme();
+        System.out.println(equalSalaryScheme.calcSalary(company).toString());
+        for (Department dep: departments) {
+            for (Employee emp: dep.getEmployees()) {
+                System.out.println(emp.getName() + " " + emp.getSalaryWithBonus() +  " " + emp.getBirthday().getTime());
+            }
+        }
+
+        company.printSalaryInfo();
+
 //        ProportionalSalaryScheme proportionalSalaryScheme = new ProportionalSalaryScheme();
 //        System.out.println(proportionalSalaryScheme.calcSalary(company).toString());
 //        company.printSalaryInfo();
