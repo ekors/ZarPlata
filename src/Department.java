@@ -8,7 +8,7 @@ public class Department {
     private ArrayList<Employee> employees;
     private String managerName;
 
-    public Department(String name, ArrayList<Employee> employees, String managerName) {
+    public Department(String name, ArrayList<Employee> employees, String managerName) { //listManagers instead of managerName
         this.name = name;
         this.employees = employees;
         this.managerName = managerName;

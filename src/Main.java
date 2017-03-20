@@ -56,7 +56,7 @@ public class Main {
         //TODO constructor                                                          done
         //TODO make new collection Managers
         //TODO generate managers using dataGenerator
-        //TODO for changing type need rewright type Emo > Man and back
+        //TODO for changing type need rewright type Emp > Man and back
         //TODO change overrided method getZPWithBonuses                             done
 
 

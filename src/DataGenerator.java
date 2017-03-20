@@ -9,7 +9,7 @@ public class DataGenerator {
     private static int managerIdCount = 0;
     private static int departmentNumber = 0;
     private static int departmentCount = 0;
-    private static ArrayList<Manager> managersList = new ArrayList<>();
+    private static ArrayList<Manager> managersList = new ArrayList<>(); //make private and init inside method
 
     //TODO generate starting from Manager: Department > Manager > Employees
     //TODO create new method generateDepartment() use for statement
@@ -20,12 +20,20 @@ public class DataGenerator {
         int i;
         for (i = 0; i < getRandomNumberInRange(2, 5); i++) {
             ArrayList<Employee> employees = generateListOfEmployees();
-            departments.add(new Department("Department " + (i + 1), employees, managerName + (managerIdCount + (i + 1))));
-            managersList.add(new Manager(managerIdCount + (i + 1), managerName + (managerIdCount + (i + 1)), getRandomNumberInRange(5000, 10000), new GregorianCalendar(getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), new GregorianCalendar(getRandomNumberInRange(2010, 2017), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), employees));
+            departments.add(generatNewDep(managerName, i, employees));
+            managersList.add(generateNewManager(managerName, i, employees));
         }
         managerIdCount += i;
         departmentNumber = departments.size();
         return departments;
+    }
+
+    private static Department generatNewDep(String managerName, int i, ArrayList<Employee> employees) {
+        return new Department("Department " + (i + 1), employees, managerName + (managerIdCount + (i + 1)));
+    }
+
+    private static Manager generateNewManager(String managerName, int i, ArrayList<Employee> employees) {
+        return new Manager(managerIdCount + (i + 1), managerName + (managerIdCount + (i + 1)), getRandomNumberInRange(5000, 10000), new GregorianCalendar(getRandomNumberInRange(1950, 2000), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), new GregorianCalendar(getRandomNumberInRange(2010, 2017), getRandomNumberInRange(1, 12), getRandomNumberInRange(1, 28)), employees);
     }
 
     public static ArrayList<Employee> generateListOfEmployees() {
