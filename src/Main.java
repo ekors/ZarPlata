@@ -1,8 +1,4 @@
-import javax.print.attribute.standard.DateTimeAtCompleted;
-import javax.xml.crypto.Data;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  * Created by ievgen.korsun on 11/2/2016.
@@ -10,15 +6,9 @@ import java.util.GregorianCalendar;
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<Department> departments = DataGenerator.generateLists();
+        ArrayList<Department> departments = DataGenerator.generateDepartments(3, 4);
 
-        for (int i = 0; i < departments.size(); i++) {
-            System.out.println(departments.get(i).getManagerName());
-            System.out.println(DataGenerator.getManagersList().get(i).getListOfSubordinates());
-        }
-
-        System.out.println(DataGenerator.getManagersList());
-
+        System.out.println(departments.get(0).getManagers());
 
         //CHECKER
 //        for (Employee emp : departments.get(0).getEmployees()) {
@@ -28,13 +18,19 @@ public class Main {
 //        System.out.println("-----------------------------------------------------");
 
         Company company = new Company(departments);
-//        EqualSalaryScheme equalSalaryScheme = new EqualSalaryScheme();
-//        System.out.println(equalSalaryScheme.calcSalary(company).toString());
-//        company.printSalaryInfo();
+        EqualSalaryScheme equalSalaryScheme = new EqualSalaryScheme();
+        System.out.println(equalSalaryScheme.calcSalary(company).toString());
+        for (Department dep: departments) {
+            for (Employee emp: dep.getEmployees()) {
+                System.out.println(emp.getName() + " " + emp.getSalaryWithBonus() +  " " + emp.getBirthday().getTime());
+            }
+        }
 
-        ProportionalSalaryScheme proportionalSalaryScheme = new ProportionalSalaryScheme();
-        System.out.println(proportionalSalaryScheme.calcSalary(company).toString());
         company.printSalaryInfo();
+
+//        ProportionalSalaryScheme proportionalSalaryScheme = new ProportionalSalaryScheme();
+//        System.out.println(proportionalSalaryScheme.calcSalary(company).toString());
+//        company.printSalaryInfo();
 //
 ////        CHECKER
 //        for (int i = 0; i < departments.size(); i++) {
@@ -59,6 +55,7 @@ public class Main {
         //TODO for changing type need rewright type Emp > Man and back
         //TODO change overrided method getZPWithBonuses                             done
 
+        //TODO create new method generateDepartment() use for statement             done
 
     }
 }

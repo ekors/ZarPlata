@@ -14,11 +14,17 @@ public class ProportionalSalaryScheme implements Calculator {
 
         Map<Employee, Float> vedomost = new HashMap<>();
         List<Employee> employeesList = company.getEmployeesList();
+        List<Manager> managerList = company.getManagerList();
+
         for (Department dep : company.getDepartments()) {
             float currentBonus = 0;
             currentBonus = departmentBonus / dep.getEmployees().size();
 
 
+            for (Manager manager: managerList) {
+                float salaryWithBonus = manager.getSalaryWithBonus() + currentBonus;
+                vedomost.put(manager, salaryWithBonus);
+            }
             for (Employee emp : employeesList) {
                 float salaryWithBonuses = emp.getSalaryWithBonus() + currentBonus;
                 vedomost.put(emp, salaryWithBonuses);

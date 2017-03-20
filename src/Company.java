@@ -67,6 +67,14 @@ public class Company {
         return employeeList;
     }
 
+    public List<Manager> getManagerList() {
+        List<Manager> managerList = new ArrayList<>();
+        for (Department dep: departments) {
+            managerList.addAll(dep.getManagers());
+        }
+        return managerList;
+    }
+
     public int getEmployeesAmount() {
         int size = 0;
         for (Department dep: departments) {
