@@ -9,27 +9,31 @@ public class DataGenerator {
     private static int managerIdCount = 0;
     private static int departmentNumber = 0;
     private static int departmentCount = 0;
-    private static ArrayList<Manager> managersList = new ArrayList<>(); //make private and init inside method
 
-    //TODO generate starting from Manager: Department > Manager > Employees
-    //TODO create new method generateDepartment() use for statement
+
+    //TODO generate starting from Manager: Department > Manager > Employees done
+    //TODO create new method generateDepartment() use for statement         done
 
     public static ArrayList<Department> generateLists() {
         ArrayList<Department> departments = new ArrayList<>();
         String managerName = "Manager ";
+        ArrayList<Manager> managersList = new ArrayList<>();
         int i;
         for (i = 0; i < getRandomNumberInRange(2, 5); i++) {
-            ArrayList<Employee> employees = generateListOfEmployees();
-            departments.add(generatNewDep(managerName, i, employees));
-            managersList.add(generateNewManager(managerName, i, employees));
+            ArrayList<Employee> employees = new ArrayList<>();
+            for (int j =0; j < getRandomNumberInRange(2,5); j++) {
+                employees = generateListOfEmployees();
+                managersList.add(generateNewManager(managerName, i, employees));
+            }
+            departments.add(generatNewDep(managerName, managersList, employees));
         }
         managerIdCount += i;
         departmentNumber = departments.size();
         return departments;
     }
 
-    private static Department generatNewDep(String managerName, int i, ArrayList<Employee> employees) {
-        return new Department("Department " + (i + 1), employees, managerName + (managerIdCount + (i + 1)));
+    private static Department generatNewDep(String name,ArrayList<Manager> managers, ArrayList<Employee> employees) {
+        return new Department(name,managers,employees);
     }
 
     private static Manager generateNewManager(String managerName, int i, ArrayList<Employee> employees) {
@@ -94,7 +98,4 @@ public class DataGenerator {
         return departmentNumber;
     }
 
-    public static ArrayList<Manager> getManagersList() {
-        return managersList;
-    }
 }

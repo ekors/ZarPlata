@@ -6,9 +6,12 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<Department> departments = DataGenerator.generateDepartments(3, 4);
+        ArrayList<Department> departments = DataGenerator.generateLists();
 
-        System.out.println(departments.get(0).getManagers());
+        for (Manager man: departments.get(0).getManagers()) {
+            System.out.println(man.getListOfSubordinates());
+
+        }
 
         //CHECKER
 //        for (Employee emp : departments.get(0).getEmployees()) {
@@ -20,11 +23,11 @@ public class Main {
         Company company = new Company(departments);
         EqualSalaryScheme equalSalaryScheme = new EqualSalaryScheme();
         System.out.println(equalSalaryScheme.calcSalary(company).toString());
-        for (Department dep: departments) {
-            for (Employee emp: dep.getEmployees()) {
-                System.out.println(emp.getName() + " " + emp.getSalaryWithBonus() +  " " + emp.getBirthday().getTime());
-            }
-        }
+//        for (Department dep: departments) {
+//            for (Employee emp: dep.getEmployees()) {
+//                System.out.println(emp.getName() + " " + emp.getSalaryWithBonus() +  " " + emp.getBirthday().getTime());
+//            }
+//        }
 
         company.printSalaryInfo();
 
@@ -45,17 +48,16 @@ public class Main {
         //TODO do while cycle instead of exception for fond value                   done
         //TODO clear Main class from logic. Transfer to DataGenerator class         done
         //TODO resolve issue with id's                                              done
+        //TODO create new method generateDepartment() use for statement             done
+        //TODO constructor                                                          done
+        //TODO make new collection Managers                                         done
+        //TODO generate managers using dataGenerator                                done
+        //TODO change overrided method getZPWithBonuses                             done
+        //TODO for changing type need rewright type Emp > Man and back
         //TODO cover with unit tests
         //TODO move fondVerification() to Main or other new Class
         //TODO clear Company from service logic (create service class for these)
 
-        //TODO constructor                                                          done
-        //TODO make new collection Managers
-        //TODO generate managers using dataGenerator
-        //TODO for changing type need rewright type Emp > Man and back
-        //TODO change overrided method getZPWithBonuses                             done
-
-        //TODO create new method generateDepartment() use for statement             done
 
     }
 }
